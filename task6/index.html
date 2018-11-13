@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task6</title>
+
+    <style>
+        li[data-foodtype=squishy] {
+            background-color: orange;
+        }
+    </style>
+
+</head>
+<body>
+<ul class="fruits">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li data-foodtype="squishy">Orange</li>
+    <li>Pear</li>
+    <li>Kiwi</li>
+    <li id="berry">Strawberry</li>
+</ul>
+
+<script>
+  //QUESTION 1:
+  const berryEle = document.getElementById('berry');
+  const berryInner = document.getElementById('berry').innerHTML;
+  console.log(berryEle);
+  console.log('I found the berry: ' + berryInner);
+  berryEle.style.background = 'red';
+
+  //QUESTION 2 (see background change in <style>):
+  const orangeEle = document.querySelector('li[data-foodtype]');
+  const orangeInner = document.querySelector('li[data-foodtype]').innerHTML;
+  console.log(orangeEle);
+  console.log('I found the fruit: ' + orangeInner);
+
+  //QUESTION 3.1:
+  const colle = document.getElementsByTagName('li');
+  console.log(colle);
+
+  //QUESTION 3.2:
+  //print out the list:
+  console.log('Using the for loop here:');
+  for (let i = 0; i < colle.length; i++) {
+    console.log(colle[i].textContent);
+    //change pear's background color:
+    if (colle[i].textContent === 'Pear') {
+      colle[i].style.backgroundColor = 'green';
+    }
+    //limit width:
+    colle[i].style.width = '100px';
+    //remove bullet:
+    colle[i].style.listStyleType = 'none';
+  }
+
+  //QUESTION 4.1:
+  const nodeList = document.querySelectorAll('li');
+  console.log(nodeList);
+
+  //QUESTION 4.2:
+  //print out the list:
+  console.log('Using forEach here:');
+  nodeList.forEach((nodeList) => {
+    console.log(nodeList.innerHTML);
+    //add borders:
+    nodeList.style.border = '1px solid black';
+  });
+
+
+</script>
+</body>
+</html>
